@@ -1,0 +1,7 @@
+c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\bin\Debug\HashSumOfFiles.exe.config
+c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\bin\Debug\HashSumOfFiles.exe
+c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\bin\Debug\HashSumOfFiles.pdb
+c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.csprojResolveAssemblyReference.cache
+c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.exe
+c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.pdb
+C:\Users\Анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\bin\Debug\Oracle.ManagedDataAccess.dll
