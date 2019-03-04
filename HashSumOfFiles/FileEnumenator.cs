@@ -50,24 +50,15 @@ namespace HashSumOfFiles
                 string currentDir = subDirs.Dequeue();
                 try
                 {
+                    foreach (string file in Directory.GetFiles(currentDir))                    
+                        files.Enqueue(file);
                     foreach (string subdirectory in Directory.GetDirectories(currentDir))
                         subDirs.Enqueue(subdirectory);
                 }
                 catch (UnauthorizedAccessException)
                 {
                     files.Enqueue(currentDir);
-                }
-                try
-                {
-                    foreach (string file in Directory.GetFiles(currentDir))
-                    {
-                        files.Enqueue(file);
-                    }
-                }
-                catch (System.UnauthorizedAccessException)
-                {
-
-                }
+                }                
             }
         }
     }
