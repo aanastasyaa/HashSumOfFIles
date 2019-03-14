@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Oracle.ManagedDataAccess.Client;
+using NLog;
 
 namespace HashSumOfFiles
 {
@@ -9,6 +10,8 @@ namespace HashSumOfFiles
     */
     public class FileHashSumDAO
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // очередь, из которой берутся вычисленные хэш-суммы и сохраняются вместе с путем до файла в БД
         private MyConcurrentQueue<FileHashSum> fileHashSums;
 
@@ -21,7 +24,7 @@ namespace HashSumOfFiles
         private void ClearTable()
         {
             string sql = "DELETE FROM hashsums";
-            using(OracleConnection conn = DBUtils.GetConnection()) 
+            using (OracleConnection conn = DBUtils.GetConnection()) 
             using (OracleCommand cmd = new OracleCommand(sql))
             {
                 conn.Open();
@@ -55,17 +58,19 @@ namespace HashSumOfFiles
                         cmd.Parameters[2].Value = file.HashSum;
 
                         cmd.ExecuteNonQuery();
+                        logger.Info("Inserted row with filename {0}", file.Filename);
                     }
-                    catch(OracleException e)
+                    catch (OracleException e)
                     {
-                        Console.WriteLine("File " + file.Filename + "is not inserted into the DB: " + e.Message);
+                        logger.Error(e, "Can`t insert row with filename {0}", file.Filename);
                     }
                     finally {
-                        if(conn!=null)
+                        if (conn != null)
                             conn.Close();
                     }
                 }
                 Console.WriteLine("All hashsums in DB");
+                logger.Info("All hashsums in DB");
             }
         }
         

@@ -5,3 +5,13 @@ c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles
 c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.exe
 c:\users\анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.pdb
 C:\Users\Анастасия\documents\visual studio 2015\Projects\HashSumOfFiles\HashSumOfFiles\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\HashSumOfFiles.exe.config
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.exe
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.pdb
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\NLog.config
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\HashSumOfFiles.exe
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\HashSumOfFiles.pdb
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\NLog.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\bin\Debug\NLog.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\HashSumOfFiles\HashSumOfFiles\obj\Debug\HashSumOfFiles.csprojResolveAssemblyReference.cache

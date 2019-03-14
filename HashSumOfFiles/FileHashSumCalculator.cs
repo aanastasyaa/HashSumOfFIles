@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
+using NLog;
 
 namespace HashSumOfFiles
 {
@@ -10,6 +11,7 @@ namespace HashSumOfFiles
     */
     public class FileHashSumCalculator
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         // очередь, из которой берутся пути к файлам
         private MyConcurrentQueue<string> files;
         // очередь, в которую сохраняются вычисленные хэш-суммы
@@ -37,15 +39,17 @@ namespace HashSumOfFiles
                         fileStream = new BufferedStream(File.OpenRead(file.Filename), 2000000);
                         byte[] hashSum = md5.ComputeHash(fileStream);
                         file.HashSum = BitConverter.ToString(hashSum).Replace("-", string.Empty);
-
+                        logger.Info("Calculated hashsum for file {0}", file.Filename);
                     }
                     catch (IOException e)
                     {
                         file.Error = e.Message;
+                        logger.Error(e,"Can`t calculate hashsum for file {0}", file.Filename);
                     }
                     catch (UnauthorizedAccessException e)
                     {
                         file.Error = e.Message;
+                        logger.Error(e,"Can`t calculate hashsum for file {0}", file.Filename);
                     }
                     finally
                     {

@@ -36,9 +36,11 @@ namespace HashSumOfFiles
             threadEnumenator.Join();
             threadHashWorkers.Join();
             threadWriter.Join();
-            
-            Console.WriteLine(stopWatch.ElapsedMilliseconds / 100 + " s");
+
+            TimeSpan elapsedTime = stopWatch.Elapsed;
+            Console.WriteLine("{0} minutes, {1} seconds", elapsedTime.Minutes, elapsedTime.Seconds);
             Console.ReadKey();
+            NLog.LogManager.Shutdown();
         }
     }
 

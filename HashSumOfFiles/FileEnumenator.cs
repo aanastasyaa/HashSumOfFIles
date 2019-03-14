@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using NLog;
 
 namespace HashSumOfFiles
 {
@@ -10,6 +11,8 @@ namespace HashSumOfFiles
     */
     public class FileEnumenator
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // очередь, в которую сохраняются пути до найденных файлов
         private MyConcurrentQueue<string> files;
 
@@ -35,10 +38,11 @@ namespace HashSumOfFiles
             else
             {
                 Console.WriteLine("{0} is not a valid file or directory", startingDirectory);
+                logger.Error("{0} is not a valid file or directory", startingDirectory);
             }
 
             files.CompleteEnqueue();
-            Console.WriteLine("All files found in " + startingDirectory);
+            Console.WriteLine("All files were found in " + startingDirectory);
         }
 
         private void ProcessDirectory(string directory)
@@ -50,14 +54,18 @@ namespace HashSumOfFiles
                 string currentDir = subDirs.Dequeue();
                 try
                 {
-                    foreach (string file in Directory.GetFiles(currentDir))                    
+                    foreach (string file in Directory.GetFiles(currentDir))
+                    {
                         files.Enqueue(file);
+                        logger.Info("Found file {0}", file);
+                    }
                     foreach (string subdirectory in Directory.GetDirectories(currentDir))
                         subDirs.Enqueue(subdirectory);
                 }
-                catch (UnauthorizedAccessException)
+                catch (UnauthorizedAccessException e)
                 {
                     files.Enqueue(currentDir);
+                    logger.Error(e,"Can`t get access to {0}", currentDir);
                 }                
             }
         }
